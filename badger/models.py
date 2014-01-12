@@ -82,6 +82,7 @@ from .signals import (badge_will_be_awarded, badge_was_awarded,
                       nomination_will_be_rejected, nomination_was_rejected,
                       user_will_be_nominated, user_was_nominated)
 
+logger = logging.getLogger(__name__)
 
 OBI_VERSION = "0.5.0"
 
@@ -401,6 +402,7 @@ class Badge(models.Model):
     """Representation of a badge"""
     objects = BadgeManager()
     UPLOAD_PATH = UPLOADS_URL + mk_upload_to('image', 'png')
+    logger.debug(UPLOAD_PATH)
 
     title = models.CharField(max_length=255, blank=False, unique=True,
         help_text='Short, descriptive title')
