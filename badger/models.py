@@ -100,7 +100,7 @@ UPLOADS_ROOT = getattr(settings, 'BADGER_MEDIA_ROOT',
     os.path.join(getattr(settings, 'MEDIA_ROOT', 'media/'), 'uploads'))
 UPLOADS_URL = getattr(settings, 'BADGER_MEDIA_URL',
     urljoin(getattr(settings, 'MEDIA_URL', '/media/'), 'uploads/'))
-BADGE_UPLOADS_FS = default_storage.save(location=UPLOADS_ROOT,
+BADGE_UPLOADS_FS = FileSystemStorage(location=UPLOADS_ROOT,
                                      base_url=UPLOADS_URL)
 
 DEFAULT_BADGE_IMAGE = getattr(settings, 'BADGER_DEFAULT_BADGE_IMAGE',
