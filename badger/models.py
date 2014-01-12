@@ -27,7 +27,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from django.template import Context, TemplateDoesNotExist
 from django.template.loader import render_to_string
-
+ 
 from django.core.serializers.json import DjangoJSONEncoder
 
 try:
