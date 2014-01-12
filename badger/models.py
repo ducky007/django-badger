@@ -400,6 +400,7 @@ class BadgeManager(models.Manager, SearchManagerMixin):
 class Badge(models.Model):
     """Representation of a badge"""
     objects = BadgeManager()
+    UPLOAD_PATH = UPLOADS_URL + mk_upload_to('image', 'png')
 
     title = models.CharField(max_length=255, blank=False, unique=True,
         help_text='Short, descriptive title')
@@ -407,7 +408,7 @@ class Badge(models.Model):
         help_text='Very short name, for use in URLs and links')
     description = models.TextField(blank=True,
         help_text='Longer description of the badge and its criteria')
-    image = models.ImageField(blank=True, null=True, upload_to=mk_upload_to('image', 'png'),
+    image = models.ImageField(blank=True, null=True, upload_to=UPLOAD_PATH,
             help_text='Upload an image to represent the badge')
     prerequisites = models.ManyToManyField('self', symmetrical=False,
             blank=True, null=True,
