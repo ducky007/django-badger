@@ -18,7 +18,7 @@ from django.db.models import signals, Q, Count, Max
 from django.db.models.fields.files import FieldFile, ImageFieldFile
 from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
-#from django.core.files.storage import FileSystemStorage
+from django.core.files.storage import FileSystemStorage
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.contrib.auth.models import User, AnonymousUser
@@ -407,8 +407,7 @@ class Badge(models.Model):
         help_text='Very short name, for use in URLs and links')
     description = models.TextField(blank=True,
         help_text='Longer description of the badge and its criteria')
-    image = models.ImageField(blank=True, null=True,
-            storage=BADGE_UPLOADS_FS, upload_to=mk_upload_to('image', 'png'),
+    image = models.ImageField(blank=True, null=True, upload_to=mk_upload_to('image', 'png'),
             help_text='Upload an image to represent the badge')
     prerequisites = models.ManyToManyField('self', symmetrical=False,
             blank=True, null=True,
