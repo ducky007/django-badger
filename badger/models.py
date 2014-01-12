@@ -18,7 +18,8 @@ from django.db.models import signals, Q, Count, Max
 from django.db.models.fields.files import FieldFile, ImageFieldFile
 from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
-from django.core.files.storage import FileSystemStorage
+#from django.core.files.storage import FileSystemStorage
+from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.sites.models import Site
